@@ -16,6 +16,26 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+### Portfolio (`artifacts/portfolio`)
+- **Type**: react-vite
+- **Preview Path**: `/`
+- **Description**: Professional single-page portfolio for Marwan Badr, ERP Technical Engineer & Odoo/FastAPI Developer.
+- **Features**:
+  - Bilingual EN/AR with full RTL/LTR layout switching
+  - Cairo font for Arabic, Inter for English
+  - "Industrial Tech" dark design (#0f172a + cyan #0ea5e9 accents)
+  - Sections: Hero, Accountant Edge, Skills Matrix, Projects, Contact
+  - Animated skill bars, grid background, scroll animations
+  - No backend — static frontend only
+
+### API Server (`artifacts/api-server`)
+- Express 5 backend serving `/api/*`
+
+### Canvas / Mockup Sandbox (`artifacts/mockup-sandbox`)
+- UI prototyping sandbox
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages
