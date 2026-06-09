@@ -1,0 +1,4 @@
+update Accountant Edge section , 
+update its description and cards beside it , make Programming first and appear
+
+delete persentages from skills 

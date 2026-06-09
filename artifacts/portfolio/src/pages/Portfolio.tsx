@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { translations, type Lang } from "@/lib/i18n";
+import { translations } from "@/lib/i18n";
 import {
   Github,
   Linkedin,
@@ -18,9 +18,9 @@ import {
   Calculator,
   BarChart2,
   Link2,
-  Send,
-  CheckCircle,
-  AlertCircle,
+  MessageSquare,
+  Briefcase,
+  Calendar,
 } from "lucide-react";
 
 function useIntersectionObserver(threshold = 0.1) {
@@ -48,23 +48,21 @@ function useIntersectionObserver(threshold = 0.1) {
 
 interface SkillBarProps {
   name: string;
-  level: number;
   isVisible: boolean;
   delay?: number;
 }
 
-function SkillBar({ name, level, isVisible, delay = 0 }: SkillBarProps) {
+function SkillBar({ name, isVisible, delay = 0 }: SkillBarProps) {
   return (
     <div className="mb-4">
-      <div className="flex justify-between mb-1">
+      <div className="flex justify-between mb-1.5">
         <span className="text-sm text-slate-300">{name}</span>
-        <span className="text-xs text-cyan-400 font-mono">{level}%</span>
       </div>
       <div className="skill-bar">
         <div
           className="skill-bar-fill"
           style={{
-            width: isVisible ? `${level}%` : "0%",
+            width: isVisible ? "100%" : "0%",
             transitionDelay: `${delay}ms`,
           }}
         />
@@ -74,28 +72,20 @@ function SkillBar({ name, level, isVisible, delay = 0 }: SkillBarProps) {
 }
 
 export default function Portfolio() {
-  const [lang, setLang] = useState<Lang>("en");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    status: "idle" as "idle" | "sending" | "success" | "error",
-  });
 
-  const t = translations[lang];
+  const t = translations.en;
 
   const skillsSection = useIntersectionObserver(0.2);
 
   useEffect(() => {
-    document.documentElement.setAttribute("dir", t.dir);
-    document.documentElement.setAttribute("lang", lang);
-  }, [lang, t.dir]);
+    document.documentElement.setAttribute("dir", "ltr");
+    document.documentElement.setAttribute("lang", "en");
+  }, []);
 
   useEffect(() => {
-    const sections = ["home", "about", "skills", "projects", "contact"];
+    const sections = ["home", "about", "experience", "skills", "projects", "contact"];
     const observers: IntersectionObserver[] = [];
 
     sections.forEach((id) => {
@@ -122,19 +112,12 @@ export default function Portfolio() {
     }
   }
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setFormState((s) => ({ ...s, status: "sending" }));
-    await new Promise((r) => setTimeout(r, 1500));
-    setFormState((s) => ({ ...s, status: "success" }));
-    setTimeout(() => {
-      setFormState({ name: "", email: "", subject: "", message: "", status: "idle" });
-    }, 4000);
-  }
+
 
   const navItems = [
     { id: "home", label: t.nav.home },
     { id: "about", label: t.nav.about },
+    { id: "experience", label: t.nav.experience },
     { id: "skills", label: t.nav.skills },
     { id: "projects", label: t.nav.projects },
     { id: "contact", label: t.nav.contact },
@@ -178,13 +161,6 @@ export default function Portfolio() {
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => setLang((l) => (l === "en" ? "ar" : "en"))}
-              className="ml-2 px-3 py-1 text-xs font-medium border border-cyan-500/40 text-cyan-400 rounded hover:bg-cyan-500/10 transition-colors font-mono"
-              data-testid="btn-lang-toggle"
-            >
-              {t.nav.toggleLang}
-            </button>
           </div>
 
           <button
@@ -210,16 +186,6 @@ export default function Portfolio() {
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => {
-                setLang((l) => (l === "en" ? "ar" : "en"));
-                setMobileMenuOpen(false);
-              }}
-              className="text-sm text-cyan-400 py-2 font-mono w-full text-left"
-              data-testid="mobile-btn-lang"
-            >
-              {t.nav.toggleLang}
-            </button>
           </div>
         )}
       </nav>
@@ -247,17 +213,10 @@ export default function Portfolio() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up animate-delay-100"
               data-testid="hero-headline"
             >
-              {lang === "en" ? (
-                <>
-                  <span className="text-slate-100">I Build Systems That Speak the </span>
-                  <span className="text-cyan-400 cyan-glow-text">Language of Business.</span>
-                </>
-              ) : (
-                <>
-                  <span className="text-slate-100">أبني أنظمة تتحدث </span>
-                  <span className="text-cyan-400 cyan-glow-text">لغة الأعمال.</span>
-                </>
-              )}
+              <>
+                <span className="text-slate-100">I Build Systems That Speak the </span>
+                <span className="text-cyan-400 cyan-glow-text">Language of Business.</span>
+              </>
             </h1>
 
             <p
@@ -293,7 +252,7 @@ export default function Portfolio() {
             onClick={() => scrollTo("about")}
             className="absolute bottom-8 start-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-600 hover:text-slate-400 transition-colors animate-bounce"
             data-testid="btn-scroll-down"
-            style={{ transform: lang === "ar" ? "translateX(50%)" : "translateX(-50%)" }}
+            style={{ transform: "translateX(-50%)" }}
           >
             <span className="text-xs font-mono">{t.hero.scrollDown}</span>
             <ChevronDown size={16} />
@@ -369,6 +328,57 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* EXPERIENCE */}
+      <section id="experience" className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="mb-12">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="section-line" />
+              <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
+                {t.experience.badge}
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3">{t.experience.title}</h2>
+            <p className="text-slate-400 text-lg">{t.experience.subtitle}</p>
+          </div>
+
+          <div className="relative border-s border-slate-700/60 ml-4 sm:ml-6 space-y-12">
+            {t.experience.items.map((item, i) => (
+              <div key={i} className="relative ps-8 sm:ps-10 group">
+                {/* Timeline Dot */}
+                <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-cyan-500 group-hover:bg-cyan-400 transition-colors flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:bg-slate-900 transition-colors" />
+                </div>
+
+                <div className="p-6 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm card-hover">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
+                        {item.role}
+                      </h3>
+                      <div className="flex items-center gap-2 text-sm text-cyan-500 font-medium">
+                        <Briefcase size={14} />
+                        <span>{item.company}</span>
+                        <span className="text-slate-600">•</span>
+                        <span className="px-2 py-0.5 text-xs rounded bg-slate-700/50 text-slate-300 border border-slate-600/30">
+                          {item.location}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="shrink-0 text-sm font-mono text-slate-400 bg-slate-800 px-3 py-1 rounded border border-slate-700/60 sm:self-start">
+                      {item.period}
+                    </div>
+                  </div>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SKILLS */}
       <section id="skills" className="py-24 bg-slate-900/40" ref={skillsSection.ref}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -402,7 +412,6 @@ export default function Portfolio() {
                     <SkillBar
                       key={ii}
                       name={item.name}
-                      level={item.level}
                       isVisible={skillsSection.isVisible}
                       delay={ci * 100 + ii * 80}
                     />
@@ -436,9 +445,17 @@ export default function Portfolio() {
                 data-testid={`card-project-${project.id}`}
               >
                 <div className="flex items-start justify-between mb-4">
-                  <span className="text-xs font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-1 rounded">
-                    {project.tag}
-                  </span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-xs font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-1 rounded">
+                      {project.tag}
+                    </span>
+                    {"date" in project && project.date && (
+                      <span className="flex items-center gap-1 text-xs font-mono text-slate-500 bg-slate-800 border border-slate-700/50 px-2 py-1 rounded">
+                        <Calendar size={10} />
+                        {project.date}
+                      </span>
+                    )}
+                  </div>
                   <div className="flex gap-2">
                     {"link" in project && project.link && (
                       <a
@@ -537,108 +554,68 @@ export default function Portfolio() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            <form onSubmit={handleSubmit} className="space-y-4" data-testid="contact-form">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm text-slate-400 mb-1.5">{t.contact.form.name}</label>
-                  <input
-                    type="text"
-                    required
-                    value={formState.name}
-                    onChange={(e) => setFormState((s) => ({ ...s, name: e.target.value }))}
-                    placeholder={t.contact.form.placeholder.name}
-                    className="w-full px-3 py-2.5 bg-slate-800/50 border border-slate-700 rounded text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 transition-colors text-sm"
-                    data-testid="input-contact-name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm text-slate-400 mb-1.5">{t.contact.form.email}</label>
-                  <input
-                    type="email"
-                    required
-                    value={formState.email}
-                    onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))}
-                    placeholder={t.contact.form.placeholder.email}
-                    className="w-full px-3 py-2.5 bg-slate-800/50 border border-slate-700 rounded text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 transition-colors text-sm"
-                    data-testid="input-contact-email"
-                  />
-                </div>
-              </div>
-
+            <div className="p-8 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm flex flex-col justify-between">
               <div>
-                <label className="block text-sm text-slate-400 mb-1.5">{t.contact.form.subject}</label>
-                <input
-                  type="text"
-                  required
-                  value={formState.subject}
-                  onChange={(e) => setFormState((s) => ({ ...s, subject: e.target.value }))}
-                  placeholder={t.contact.form.placeholder.subject}
-                  className="w-full px-3 py-2.5 bg-slate-800/50 border border-slate-700 rounded text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 transition-colors text-sm"
-                  data-testid="input-contact-subject"
-                />
+                <h3 className="text-xl font-bold text-slate-100 mb-4">
+                  Let's build something great together.
+                </h3>
+                <p className="text-slate-400 leading-relaxed mb-8">
+                  {t.contact.subtitle_2}
+                </p>
               </div>
-
-              <div>
-                <label className="block text-sm text-slate-400 mb-1.5">{t.contact.form.message}</label>
-                <textarea
-                  required
-                  rows={5}
-                  value={formState.message}
-                  onChange={(e) => setFormState((s) => ({ ...s, message: e.target.value }))}
-                  placeholder={t.contact.form.placeholder.message}
-                  className="w-full px-3 py-2.5 bg-slate-800/50 border border-slate-700 rounded text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 transition-colors text-sm resize-none"
-                  data-testid="textarea-contact-message"
-                />
+              <div className="p-4 rounded border border-cyan-500/20 bg-cyan-500/5">
+                <p className="text-sm text-cyan-400 font-medium">{t.contact.availability}</p>
               </div>
+            </div>
 
-              {formState.status === "success" && (
-                <div className="flex items-center gap-2 text-green-400 text-sm p-3 bg-green-500/10 border border-green-500/20 rounded" data-testid="msg-contact-success">
-                  <CheckCircle size={16} />
-                  {t.contact.form.success}
-                </div>
-              )}
-
-              {formState.status === "error" && (
-                <div className="flex items-center gap-2 text-red-400 text-sm p-3 bg-red-500/10 border border-red-500/20 rounded" data-testid="msg-contact-error">
-                  <AlertCircle size={16} />
-                  {t.contact.form.error}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={formState.status === "sending"}
-                className="flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-400 disabled:opacity-60 disabled:cursor-not-allowed text-[#0f172a] font-semibold rounded transition-all duration-200 cyan-glow hover:scale-105"
-                data-testid="btn-contact-submit"
-              >
-                <Send size={16} />
-                {formState.status === "sending" ? t.contact.form.sending : t.contact.form.send}
-              </button>
-            </form>
-
-            <div className="space-y-8">
+            <div className="p-8 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-slate-400">
-                  <div className="w-8 h-8 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-                    <Mail size={14} className="text-cyan-400" />
+                <a
+                  href="mailto:marwanbadr514@gmail.com"
+                  className="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors group"
+                >
+                  <div className="w-10 h-10 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                    <Mail size={16} className="text-cyan-400" />
                   </div>
-                  <span className="text-sm">marwan.badr@email.com</span>
-                </div>
-                <div className="flex items-center gap-3 text-slate-400">
-                  <div className="w-8 h-8 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-                    <MapPin size={14} className="text-cyan-400" />
+                  <div>
+                    <div className="text-xs text-slate-500 font-mono">// Email</div>
+                    <span className="text-sm font-medium">marwanbadr514@gmail.com</span>
                   </div>
-                  <span className="text-sm">Egypt · Remote Available</span>
+                </a>
+
+                <a
+                  href="https://wa.me/201007258086"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors group"
+                >
+                  <div className="w-10 h-10 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                    <MessageSquare size={16} className="text-cyan-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-500 font-mono">// WhatsApp</div>
+                    <span className="text-sm font-medium">+201007258086</span>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-3 text-slate-300">
+                  <div className="w-10 h-10 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                    <MapPin size={16} className="text-cyan-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-500 font-mono">// Location</div>
+                    <span className="text-sm font-medium">Egypt</span>
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <p className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">
-                  {lang === "en" ? "Find me on" : "تجدني على"}
+              <div className="pt-4 border-t border-slate-800">
+                <p className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-3">
+                  Find me on
                 </p>
                 <div className="flex gap-3">
                   <a
-                    href="https://github.com/"
+                    href="https://github.com/Marwan-badr543"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2.5 border border-slate-700 hover:border-cyan-500/40 rounded text-slate-400 hover:text-cyan-400 transition-all duration-200 text-sm"
@@ -648,7 +625,7 @@ export default function Portfolio() {
                     {t.contact.links.github}
                   </a>
                   <a
-                    href="https://linkedin.com/"
+                    href="https://linkedin.com/in/marwan-badr-4553a42bb"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2.5 border border-slate-700 hover:border-cyan-500/40 rounded text-slate-400 hover:text-cyan-400 transition-all duration-200 text-sm"
@@ -657,37 +634,6 @@ export default function Portfolio() {
                     <Linkedin size={16} />
                     {t.contact.links.linkedin}
                   </a>
-                  <a
-                    href="https://youtube.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 border border-slate-700 hover:border-cyan-500/40 rounded text-slate-400 hover:text-cyan-400 transition-all duration-200 text-sm"
-                    data-testid="link-youtube"
-                  >
-                    <Youtube size={16} />
-                    {t.contact.links.youtube}
-                  </a>
-                </div>
-              </div>
-
-              <div className="p-4 rounded border border-cyan-500/20 bg-cyan-500/5">
-                <p className="text-sm text-cyan-400 font-medium">{t.contact.availability}</p>
-              </div>
-
-              <div className="p-4 rounded border border-slate-700/50 bg-slate-800/30">
-                <p className="text-xs font-mono text-slate-500 mb-2">// Quick Stats</p>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { label: lang === "en" ? "ERP Implementations" : "تطبيقات ERP", value: "15+" },
-                    { label: lang === "en" ? "Integrations Built" : "تكاملات منجزة", value: "20+" },
-                    { label: lang === "en" ? "Years Experience" : "سنوات خبرة", value: "5+" },
-                    { label: lang === "en" ? "Uptime SLA" : "معدل التشغيل", value: "99.9%" },
-                  ].map((stat, si) => (
-                    <div key={si} data-testid={`stat-${si}`}>
-                      <div className="text-xl font-bold text-cyan-400 font-mono">{stat.value}</div>
-                      <div className="text-xs text-slate-500">{stat.label}</div>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
