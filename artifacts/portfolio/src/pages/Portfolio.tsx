@@ -155,11 +155,10 @@ export default function Portfolio() {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`nav-link text-sm font-medium transition-colors ${
-                  activeSection === item.id
+                className={`nav-link text-sm font-medium transition-colors ${activeSection === item.id
                     ? "text-cyan-400"
                     : "text-slate-400 hover:text-slate-100"
-                }`}
+                  }`}
                 data-testid={`nav-${item.id}`}
               >
                 {item.label}
@@ -182,9 +181,8 @@ export default function Portfolio() {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`text-sm py-2 font-medium w-full text-left ${
-                  activeSection === item.id ? "text-cyan-400" : "text-slate-400"
-                }`}
+                className={`text-sm py-2 font-medium w-full text-left ${activeSection === item.id ? "text-cyan-400" : "text-slate-400"
+                  }`}
                 data-testid={`mobile-nav-${item.id}`}
               >
                 {item.label}
@@ -206,35 +204,40 @@ export default function Portfolio() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20">
           <div className="max-w-4xl">
+
+            <h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-4 animate-fade-in-up animate-delay-100 text-slate-100 "
+              data-testid="hero-name"
+            >
+              Marwan Badr
+            </h1>
             <div className="flex items-center gap-2 mb-6 animate-fade-in-up">
               <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 status-dot" />
               <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
                 {t.hero.badge}
               </span>
-            </div>
+            </div><br></br>
 
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up animate-delay-100"
+            <h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-6 animate-fade-in-up animate-delay-200"
               data-testid="hero-headline"
             >
-              <>
-                <span className="text-slate-100">I Build Systems That Speak the </span>
-                <span className="text-cyan-400 cyan-glow-text">Language of Business.</span>
-              </>
-            </h1>
+              <span className="text-slate-300">I Build Systems That Speak the </span>
+              <span className="text-cyan-400 cyan-glow-text">Language of Business.</span>
+            </h2>
 
             <p
-              className="text-base sm:text-lg text-slate-400 font-mono mb-4 animate-fade-in-up animate-delay-200"
+              className="text-base sm:text-lg text-slate-400 font-mono mb-4 animate-fade-in-up animate-delay-300"
               data-testid="hero-subheadline"
             >
               {t.hero.subheadline}
             </p>
 
-            <p className="text-slate-400 max-w-2xl leading-relaxed mb-10 animate-fade-in-up animate-delay-300">
+            <p className="text-slate-400 max-w-2xl leading-relaxed mb-10 animate-fade-in-up animate-delay-400">
               {t.hero.description}
             </p>
 
-            <div className="flex flex-wrap gap-4 animate-fade-in-up animate-delay-400">
+            <div className="flex flex-wrap gap-4 animate-fade-in-up animate-delay-500">
               <button
                 onClick={() => scrollTo("projects")}
                 className="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-[#0f172a] font-semibold rounded transition-all duration-200 cyan-glow hover:scale-105"
