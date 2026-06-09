@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { translations } from "@/lib/i18n";
+import { motion } from "framer-motion";
 import {
   Github,
   Linkedin,
@@ -203,41 +204,66 @@ export default function Portfolio() {
         <div className="absolute bottom-1/4 end-1/4 w-64 h-64 rounded-full bg-blue-500/5 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
 
-            <h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-4 animate-fade-in-up animate-delay-100 text-slate-100 "
+            <motion.h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-4 text-slate-100"
               data-testid="hero-name"
+              initial={{ opacity: 0, scale: 0.9, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               Marwan Badr
-            </h1>
-            <div className="flex items-center gap-2 mb-6 animate-fade-in-up">
+            </motion.h1>
+
+            <motion.div
+              className="flex items-center justify-center gap-2 mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
               <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 status-dot" />
               <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
                 {t.hero.badge}
               </span>
-            </div><br></br>
+            </motion.div>
 
-            <h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-6 animate-fade-in-up animate-delay-200"
+            <motion.h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-6"
               data-testid="hero-headline"
+              initial={{ opacity: 0, scale: 0.95, y: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
             >
               <span className="text-slate-300">I Build Systems That Speak the </span>
               <span className="text-cyan-400 cyan-glow-text">Language of Business.</span>
-            </h2>
+            </motion.h2>
 
-            <p
-              className="text-base sm:text-lg text-slate-400 font-mono mb-4 animate-fade-in-up animate-delay-300"
+            <motion.p
+              className="text-base sm:text-lg text-slate-400 font-mono mb-4"
               data-testid="hero-subheadline"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
             >
               {t.hero.subheadline}
-            </p>
+            </motion.p>
 
-            <p className="text-slate-400 max-w-2xl leading-relaxed mb-10 animate-fade-in-up animate-delay-400">
+            <motion.p
+              className="text-slate-400 max-w-2xl leading-relaxed mb-10 mx-auto"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
               {t.hero.description}
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap gap-4 animate-fade-in-up animate-delay-500">
+            <motion.div
+              className="flex flex-wrap justify-center gap-4"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
               <button
                 onClick={() => scrollTo("projects")}
                 className="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-[#0f172a] font-semibold rounded transition-all duration-200 cyan-glow hover:scale-105"
@@ -252,7 +278,7 @@ export default function Portfolio() {
               >
                 {t.hero.ctaContact}
               </button>
-            </div>
+            </motion.div>
           </div>
 
           <button
@@ -268,9 +294,15 @@ export default function Portfolio() {
       </section>
 
       {/* ACCOUNTANT EDGE */}
-      <section id="about" className="py-24 relative">
+      <section id="about" className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="mb-12">
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="flex items-center gap-2 mb-3">
               <div className="section-line" />
               <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
@@ -279,10 +311,16 @@ export default function Portfolio() {
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-3">{t.edge.title}</h2>
             <p className="text-slate-400 text-lg">{t.edge.subtitle}</p>
-          </div>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-5 text-slate-300 leading-relaxed">
+            <motion.div
+              className="space-y-5 text-slate-300 leading-relaxed"
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <p>{t.edge.p1}</p>
               <p>{t.edge.p2}</p>
               <p className="text-cyan-400 font-semibold text-lg border-s-2 border-cyan-500 ps-4">
@@ -307,16 +345,20 @@ export default function Portfolio() {
                 <div className="ps-8 text-slate-500">implement_solution()</div>
                 <div className="ps-8 text-cyan-400">return business_value</div>
               </div>
-            </div>
+            </motion.div>
 
             <div className="grid gap-4">
               {t.edge.pillars.map((pillar, i) => {
                 const Icon = iconMap[pillar.icon] || Cpu;
                 return (
-                  <div
+                  <motion.div
                     key={i}
                     className="p-5 rounded border border-slate-700/50 bg-slate-800/30 card-hover group"
                     data-testid={`card-pillar-${i}`}
+                    initial={{ opacity: 0, x: 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, delay: i * 0.2 }}
                   >
                     <div className="flex items-start gap-4">
                       <div className="shrink-0 w-10 h-10 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
@@ -327,7 +369,7 @@ export default function Portfolio() {
                         <p className="text-sm text-slate-400 leading-relaxed">{pillar.desc}</p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -351,7 +393,14 @@ export default function Portfolio() {
 
           <div className="relative border-s border-slate-700/60 ml-4 sm:ml-6 space-y-12">
             {t.experience.items.map((item, i) => (
-              <div key={i} className="relative ps-8 sm:ps-10 group">
+              <motion.div
+                key={i}
+                className="relative ps-8 sm:ps-10 group"
+                initial={{ opacity: 0, y: 50, filter: "blur(4px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 {/* Timeline Dot */}
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-cyan-500 group-hover:bg-cyan-400 transition-colors flex items-center justify-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:bg-slate-900 transition-colors" />
@@ -380,7 +429,7 @@ export default function Portfolio() {
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -404,10 +453,14 @@ export default function Portfolio() {
             {t.skills.categories.map((cat, ci) => {
               const CatIcon = iconMap[cat.icon] || Cpu;
               return (
-                <div
+                <motion.div
                   key={ci}
                   className="p-5 rounded border border-slate-700/50 bg-slate-800/30 card-hover"
                   data-testid={`card-skill-category-${ci}`}
+                  initial={{ opacity: 0, scale: 0.9, y: 40 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: ci * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <div className="flex items-center gap-3 mb-5">
                     <div className="w-8 h-8 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
@@ -423,7 +476,7 @@ export default function Portfolio() {
                       delay={ci * 100 + ii * 80}
                     />
                   ))}
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -446,10 +499,14 @@ export default function Portfolio() {
 
           <div className="grid lg:grid-cols-2 gap-6">
             {t.projects.items.map((project, pi) => (
-              <div
+              <motion.div
                 key={project.id}
                 className="group p-6 rounded border border-slate-700/50 bg-slate-800/30 card-hover flex flex-col"
                 data-testid={`card-project-${project.id}`}
+                initial={{ opacity: 0, x: pi % 2 === 0 ? -100 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-2 flex-wrap">
@@ -540,7 +597,7 @@ export default function Portfolio() {
                     </a>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -563,7 +620,13 @@ export default function Portfolio() {
 
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             {/* Left: PDF Preview (larger) */}
-            <div className="lg:col-span-2">
+            <motion.div
+              className="lg:col-span-2"
+              initial={{ opacity: 0, scale: 0.96, y: 15 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
               <div className="resume-preview-card rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/50 bg-slate-800/40">
                   <div className="flex items-center gap-2">
@@ -593,10 +656,16 @@ export default function Portfolio() {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right: Info card */}
-            <div className="lg:col-span-1 space-y-6">
+            <motion.div
+              className="lg:col-span-1 space-y-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
               <div className="p-6 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm">
                 <div className="w-14 h-14 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5">
                   <FileText size={24} className="text-cyan-400" />
@@ -637,7 +706,7 @@ export default function Portfolio() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -657,7 +726,13 @@ export default function Portfolio() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="p-8 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm flex flex-col justify-between">
+            <motion.div
+              className="p-8 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm flex flex-col justify-between"
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+            >
               <div>
                 <h3 className="text-xl font-bold text-slate-100 mb-4">
                   Let's build something great together.
@@ -669,9 +744,15 @@ export default function Portfolio() {
               <div className="p-4 rounded border border-cyan-500/20 bg-cyan-500/5">
                 <p className="text-sm text-cyan-400 font-medium">{t.contact.availability}</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="p-8 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm space-y-6">
+            <motion.div
+              className="p-8 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm space-y-6"
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+            >
               <div className="space-y-4">
                 <a
                   href="mailto:marwanbadr514@gmail.com"
@@ -739,7 +820,7 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
