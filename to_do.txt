@@ -2,3 +2,5 @@ update Accountant Edge section ,
 update its description and cards beside it , make Programming first and appear
 
 delete persentages from skills 
+
+PORT=3000 BASE_PATH=/ pnpm --filter @workspace/portfolio dev
