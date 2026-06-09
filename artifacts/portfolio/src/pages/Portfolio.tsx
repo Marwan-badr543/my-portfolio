@@ -21,6 +21,9 @@ import {
   MessageSquare,
   Briefcase,
   Calendar,
+  FileText,
+  Download,
+  Eye,
 } from "lucide-react";
 
 function useIntersectionObserver(threshold = 0.1) {
@@ -85,7 +88,7 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const sections = ["home", "about", "experience", "skills", "projects", "contact"];
+    const sections = ["home", "about", "experience", "skills", "projects", "resume", "contact"];
     const observers: IntersectionObserver[] = [];
 
     sections.forEach((id) => {
@@ -120,6 +123,7 @@ export default function Portfolio() {
     { id: "experience", label: t.nav.experience },
     { id: "skills", label: t.nav.skills },
     { id: "projects", label: t.nav.projects },
+    { id: "resume", label: t.nav.resume },
     { id: "contact", label: t.nav.contact },
   ];
 
@@ -535,6 +539,102 @@ export default function Portfolio() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RESUME */}
+      <section id="resume" className="py-24 bg-slate-900/40 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-cyan-500/3 blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+          <div className="mb-12">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="section-line" />
+              <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
+                {t.resume.badge}
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3">{t.resume.title}</h2>
+            <p className="text-slate-400 text-lg">{t.resume.subtitle}</p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 items-start">
+            {/* Left: PDF Preview (larger) */}
+            <div className="lg:col-span-2">
+              <div className="resume-preview-card rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/50 bg-slate-800/40">
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1.5">
+                      <span className="w-3 h-3 rounded-full bg-red-500/60" />
+                      <span className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                      <span className="w-3 h-3 rounded-full bg-green-500/60" />
+                    </div>
+                    <span className="text-xs font-mono text-slate-500 ml-2">Marwan_Badr_CV.pdf</span>
+                  </div>
+                  <a
+                    href="/Marwan_Badr_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-slate-500 hover:text-cyan-400 transition-colors flex items-center gap-1"
+                  >
+                    <ExternalLink size={12} />
+                    Open
+                  </a>
+                </div>
+                <div className="relative" style={{ height: '800px' }}>
+                  <iframe
+                    src="/Marwan_Badr_CV.pdf"
+                    className="w-full h-full border-0"
+                    title="Marwan Badr CV Preview"
+                    style={{ background: '#1e293b' }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Info card */}
+            <div className="lg:col-span-1 space-y-6">
+              <div className="p-6 rounded border border-slate-700/50 bg-slate-800/20 backdrop-blur-sm">
+                <div className="w-14 h-14 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5">
+                  <FileText size={24} className="text-cyan-400" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-100 mb-3">Marwan Badr</h3>
+                <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                  {t.resume.description}
+                </p>
+
+                <div className="space-y-3">
+                  <a
+                    href="/Marwan_Badr_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-cyan-500 hover:bg-cyan-400 text-[#0f172a] font-semibold rounded transition-all duration-200 cyan-glow hover:scale-[1.02]"
+                    data-testid="btn-view-resume"
+                  >
+                    <Eye size={18} />
+                    {t.resume.viewBtn}
+                  </a>
+                  <a
+                    href="/Marwan_Badr_CV.pdf"
+                    download="Marwan_Badr_CV.pdf"
+                    className="flex items-center justify-center gap-2 w-full px-5 py-3 border border-slate-700 hover:border-cyan-500/60 text-slate-300 hover:text-cyan-400 font-medium rounded transition-all duration-200 hover:scale-[1.02]"
+                    data-testid="btn-download-resume"
+                  >
+                    <Download size={18} />
+                    {t.resume.downloadBtn}
+                  </a>
+                </div>
+              </div>
+
+              <div className="p-4 rounded border border-cyan-500/20 bg-cyan-500/5">
+                <div className="flex items-start gap-3">
+                  <FileText size={16} className="text-cyan-400 mt-0.5 shrink-0" />
+                  <p className="text-sm text-cyan-400/80">
+                    PDF format · Compatible with all devices and ATS systems
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -9,6 +9,7 @@ export const translations = {
       experience: "Experience",
       skills: "Skills",
       projects: "Projects",
+      resume: "Resume",
       contact: "Contact",
       toggleLang: "العربية",
     },
@@ -221,6 +222,14 @@ export const translations = {
           videoLabel: "Watch Playlist",
         },
       ],
+    },
+    resume: {
+      badge: "My Resume",
+      title: "Curriculum Vitae",
+      subtitle: "Download or preview my full resume below.",
+      viewBtn: "View Resume",
+      downloadBtn: "Download PDF",
+      description: "A comprehensive overview of my professional experience, technical skills, education, and projects — all in one document.",
     },
     contact: {
       badge: "Let's Connect",
