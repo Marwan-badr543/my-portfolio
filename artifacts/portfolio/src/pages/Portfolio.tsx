@@ -25,6 +25,7 @@ import {
   FileText,
   Download,
   Eye,
+  Wrench,
 } from "lucide-react";
 
 function useIntersectionObserver(threshold = 0.1) {
@@ -136,6 +137,7 @@ export default function Portfolio() {
     calculator: Calculator,
     chart: BarChart2,
     bridge: Link2,
+    tools: Wrench,
   };
 
   return (

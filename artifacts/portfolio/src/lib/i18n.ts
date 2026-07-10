@@ -16,9 +16,9 @@ export const translations = {
     hero: {
       badge: "Open to Work",
       headline: "I Build Systems That Speak the Language of Business.",
-      subheadline: "Frappe Developer & Backend Engineer | Accountant",
+      subheadline: "Backend & ERP Developer",
       description:
-        "I am a Software Engineer with an accounting background specializing in building custom Frappe/ERPNext applications and robust backend systems using Python and FastAPI.I design finance-aware software that ensures data integrity and seamless business workflows. Currently working remotely at Showsatellite and open to new opportunities.",
+        "Backend & ERP Engineer Specialized in architecting scalable backend systems and robust ERP solutions (Frappe/Odoo). Interested in translating complex accounting cycles into high-performance, code. Proficient in building RESTful APIs with Python/FastAPI and engineering e-commerce systems.",
       cta: "View My Work",
       ctaContact: "Get in Touch",
       scrollDown: "Scroll to explore",
@@ -53,21 +53,21 @@ export const translations = {
           company: "Showsatellite",
           location: "Remote (Bahrain)",
           period: "March 2026 – Present",
-          description: "Designing and implementing robust custom Frappe applications, developing RESTful APIs with Python/FastAPI, and automating system synchronization.",
+          description: "Engineered a secure product sync engine between ERPNext and OpenCart. Architected a full-scale e-commerce ecosystem integrated with ERPNext. Built an operations dashboard managing TV/AC logistics, real-time driver scheduling, and maintenance ticketing.",
         },
         {
           role: "Accountant",
           company: "Minicash Furniture Company",
           location: "Onsite",
           period: "February 2026 – March 2026",
-          description: "Managed day-to-day accounts, general ledgers, accounts receivable/payable, and reconciled financial statements.",
+          description: "Managed daily accounting operations, general ledgers, and accounts receivable/payable (AR/AP).",
         },
         {
-          role: "Backend Developer",
+          role: "Backend Developer (Part-time)",
           company: "Showsatellite",
           location: "Remote (Bahrain)",
           period: "April 2025 – September 2025",
-          description: "Developed and maintained backend API integrations, custom ERPNext flows, and real-time data sync engines.",
+          description: "Architecting a full-scale e-commerce platform integrated with ERPNext to automate sales orders, invoices, and delivery notes. Engineered an admin logistics dashboard with time-slot management, and automated system workflows via real-time Telegram and Google Sheets sync.",
         },
       ],
     },
@@ -77,53 +77,72 @@ export const translations = {
       subtitle: "A tailored toolkit bridging software development and accounting.",
       categories: [
         {
-          name: "Frappe Framework & ERPNext",
-          icon: "erp",
-          items: [
-            { name: "Frappe Framework (Custom apps, hooks, scripts)", level: 92 },
-            { name: "ERPNext Customization & DocTypes", level: 90 },
-            { name: "REST API Integration", level: 92 },
-          ],
-        },
-        {
-          name: "Backend Development",
+          name: "Languages",
           icon: "backend",
           items: [
-            { name: "Python", level: 95 },
-            { name: "FastAPI & SQLAlchemy", level: 90 },
-            { name: "API Design & RESTful Services", level: 92 },
-            { name: "Git & Version Control", level: 88 },
+            { name: "Python", level: 90 },
+            { name: "JavaScript", level: 90 },
+            { name: "HTML", level: 90 },
+            { name: "CSS", level: 90 },
           ],
         },
         {
-          name: "Database & Tools",
-          icon: "db",
-          items: [
-            { name: "Relational Databases", level: 85 },
-            { name: "SQLAlchemy ORM", level: 90 },
-          ],
-        },
-        {
-          name: "Accounting Skills",
-          icon: "calculator",
-          items: [
-            { name: "Full Accounting Cycle & Reconciliations", level: 95 },
-            { name: "Financial Statements (Income, Balance)", level: 92 },
-            { name: "Inventory Control & Accounts Mgmt", level: 90 },
-          ],
-        },
-        {
-          name: "Prompt Engineering",
-          icon: "chart",
-          items: [
-            { name: "Prompt Engineering (LearnPrompt.org, 2024)", level: 78 },
-          ],
-        },
-        {
-          name: "Odoo Development",
+          name: "ERP Frameworks",
           icon: "erp",
           items: [
-            { name: "Odoo Development (Prior background)", level: 30 },
+            { name: "Odoo Development", level: 90 },
+            { name: "Frappe Framework / ERPNext", level: 90 },
+          ],
+        },
+        {
+          name: "Backend & API Architecture",
+          icon: "integration",
+          items: [
+            { name: "Web Development", level: 90 },
+            { name: "FastAPI", level: 90 },
+            { name: "RESTful APIs", level: 90 },
+            { name: "Webhooks", level: 90 },
+          ],
+        },
+        {
+          name: "Database Management",
+          icon: "db",
+          items: [
+            { name: "PostgreSQL", level: 90 },
+            { name: "MySQL", level: 90 },
+            { name: "MariaDB", level: 90 },
+            { name: "Redis (Caching)", level: 90 },
+          ],
+        },
+        {
+          name: "Desktop Development",
+          icon: "backend",
+          items: [
+            { name: "PyQt5", level: 90 },
+          ],
+        },
+        {
+          name: "Tools & DevOps",
+          icon: "tools",
+          items: [
+            { name: "Docker", level: 90 },
+            { name: "Git", level: 90 },
+            { name: "GitHub", level: 90 },
+          ],
+        },
+        {
+          name: "Domain Knowledge (Accounting)",
+          icon: "calculator",
+          items: [
+            { name: "Professional Financial Accounting (PFA)", level: 90 },
+          ],
+        },
+        {
+          name: "AI & Media Tools",
+          icon: "chart",
+          items: [
+            { name: "Prompt Engineering", level: 90 },
+            { name: "Technical Content Creation", level: 90 },
           ],
         },
       ],
@@ -133,6 +152,65 @@ export const translations = {
       title: "Projects",
       subtitle: "Real systems built for real business problems.",
       items: [
+        {
+          id: "odoo-sales-commission",
+          tag: "Odoo Custom Addon",
+          date: "July 2026",
+          title: "Odoo Sales Commission Module",
+          description: "A sales commission management module that calculate and track sales team commissions.",
+          highlights: [
+            "Registers salespeople profiles with specific commission-related metadata",
+            "Calculates commission payments linked directly to invoices and sales orders",
+            "Built-in wizards and views for processing and auditing commission payouts",
+          ],
+          tech: ["Odoo 17", "Python", "XML", "Accounting", "Git"],
+          link: "https://github.com/Marwan-badr543/Odoo-sales-commission-module",
+          linkLabel: "View GitHub Repo",
+        },
+        {
+          id: "odoo-todo-list",
+          tag: "Odoo Custom Addon",
+          date: "July 2026",
+          title: "Odoo To-Do List Module",
+          description: "A lightweight Odoo 17 addon for tracking tasks and managing associated timesheets.",
+          highlights: [
+            "Task status tracking across New, In Progress, Completed, and Closed states",
+            "Custom validation rules preventing past due dates and overtime allocation",
+            "Timesheet association to tasks with automated total worked hours calculation",
+          ],
+          tech: ["Odoo 17", "Python", "XML", "PostgreSQL", "Git"],
+          link: "https://github.com/Marwan-badr543/Odoo-To-Do-List-module",
+          linkLabel: "View GitHub Repo",
+        },
+        {
+          id: "odoo-property-management",
+          tag: "Odoo Custom Addon",
+          date: "June 2026",
+          title: "Odoo Property Management Module",
+          description: "A comprehensive real estate property management module enabling properties, owners, and transactions to be tracked seamlessly.",
+          highlights: [
+            "Property listing management with expected/selling prices, garage, and garden details",
+            "Owner profile management linked directly to property records",
+            "Sales integration mapping property status to sold and auditing change logs",
+          ],
+          tech: ["Odoo 17", "Python", "XML", "Sales Management", "Git"],
+          link: "https://github.com/Marwan-badr543/odoo-property-mangement-module",
+          linkLabel: "View GitHub Repo",
+        },
+        {
+          id: "responsive-webpage-layout",
+          tag: "Frontend",
+          date: "May 2026",
+          title: "Starter Responsive Landing Page",
+          description: "A simple responsive landing page built with pure HTML & CSS.",
+          highlights: [
+            "Semantic HTML5 markup with responsive CSS styling",
+            "Clean layout using flexbox and grid",
+          ],
+          tech: ["HTML5", "CSS3", "Git"],
+          link: "https://github.com/Marwan-badr543/html-css-page",
+          linkLabel: "View GitHub Repo",
+        },
         {
           id: "telegram-notification",
           tag: "Frappe Custom App",
@@ -160,7 +238,7 @@ export const translations = {
             "Clean Frappe custom application architecture",
           ],
           tech: ["Frappe Framework", "Python", "Javascript", "Git"],
-          link: "https://github.com/Marwan-badr543/support_management_frappe_app/tree/develop",
+          link: "https://github.com/Marwan-badr543/support_management_frappe_app",
           linkLabel: "View GitHub Repo",
         },
         {
@@ -175,6 +253,8 @@ export const translations = {
             "Unified control panel for all logistics operations",
           ],
           tech: ["Frappe Framework", "Python", "FastAPI", "REST APIs"],
+          link: "http://163.172.120.127:7100/en",
+          linkLabel: "Live Website",
         },
         {
           id: "sync-engine",
@@ -234,7 +314,7 @@ export const translations = {
     contact: {
       badge: "Let's Connect",
       title: "Get In Touch",
-      subtitle: "Looking for a Frappe developer & backend engineer who understands accounting? Let's talk.",
+      subtitle: "Looking for a backend & ERP developer who understands accounting? Let's talk.",
       subtitle_2: "Have an ERP project that needs solid architecture and accurate business logic? Drop me a message or schedule a call.",
       links: {
         github: "GitHub",
