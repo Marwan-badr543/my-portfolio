@@ -16,9 +16,9 @@ export const translations = {
     hero: {
       badge: "Open to Work",
       headline: "I Build Systems That Speak the Language of Business.",
-      subheadline: "Backend & ERP Developer",
+      subheadline: "Software Engineer | Backend, ERP & AI Systems",
       description:
-        "Backend & ERP Engineer specialized in architecting scalable backend systems (Django/FastAPI) and robust ERP solutions (Odoo/Frappe). Focused on translating complex accounting cycles into high-performance code and building secure RESTful APIs.",
+        "Software Engineer specializing in robust backend architectures, ERP engineering (Frappe, Odoo), and Agentic AI workflows. Combines an accounting background with production experience in Python, FastAPI, and LangGraph to build high-performance APIs, custom business modules, and autonomous, LLM-driven agents. Focused on clean system design, data integrity, and end-to-end automation.",
       cta: "View My Work",
       ctaContact: "Get in Touch",
       scrollDown: "Scroll to explore",
@@ -30,30 +30,19 @@ export const translations = {
       p1: "Graduated in 2025 from the Faculty of Commerce (English Section, Accounting Department). I don't just write code—I understand the underlying business logic. I know how a Chart of Accounts is structured, how journal entries flow into general ledgers, and how inventory movements connect directly to accounting and financial operations.",
       p2: "When building integrations and automating workflows, my financial background ensures that data flows securely and accurately. I specialize in bridging the gap between developers and accountants to ensure perfect data integrity.",
       p3: "Focused on high-quality, well-documented development.",
-      pillars: [
-        {
-          icon: "calculator",
-          title: "Accounting Cycle Expertise",
-          desc: "Deep understanding of journal entries, ledger posting, bank reconciliations, and financial statements.",
-        },
-        {
-          icon: "erp",
-          title: "ERP & Backend Architecture",
-          desc: "Designing robust server scripts, custom DocTypes, and RESTful APIs using Python and FastAPI.",
-        },
-      ],
+      pillars: [],
     },
     experience: {
       badge: "Professional Journey",
       title: "Work Experience",
-      subtitle: "My career path bridging backend development and financial roles.",
+      subtitle: "My career path engineering robust software, ERP systems, and business platforms.",
       items: [
         {
-          role: "Backend Developer",
+          role: "Software Engineer",
           company: "Showsatellite",
           location: "Remote (Bahrain)",
           period: "March 2026 – Present",
-          description: "Engineered a secure product sync engine between ERPNext and OpenCart. Architected a full-scale e-commerce ecosystem integrated with ERPNext. Built an operations dashboard managing TV/AC logistics, real-time driver scheduling, and maintenance ticketing.",
+          description: "Develop full-scale e-commerce platforms, customer-facing web solutions, and automated business architectures for a premier home appliances retail company in Bahrain. Lead custom Frappe / ERPNext engineering, DocType modeling, and workflow automations. Engineer high-throughput real-time sync engines between ERPNext and OpenCart, and built an operations control center managing TV/AC delivery logistics, time-slot scheduling, and driver dispatch.",
         },
         {
           role: "Accountant",
@@ -61,13 +50,6 @@ export const translations = {
           location: "Onsite",
           period: "February 2026 – March 2026",
           description: "Managed daily accounting operations, general ledgers, and accounts receivable/payable (AR/AP).",
-        },
-        {
-          role: "Backend Developer (Part-time)",
-          company: "Showsatellite",
-          location: "Remote (Bahrain)",
-          period: "April 2025 – September 2025",
-          description: "Architecting a full-scale e-commerce platform integrated with ERPNext to automate sales orders, invoices, and delivery notes. Engineered an admin logistics dashboard with time-slot management, and automated system workflows via real-time Telegram and Google Sheets sync.",
         },
       ],
     },
@@ -84,6 +66,17 @@ export const translations = {
             { name: "JavaScript", level: 90 },
             { name: "HTML", level: 90 },
             { name: "CSS", level: 90 },
+          ],
+        },
+        {
+          name: "AI & Agentic Systems",
+          icon: "erp",
+          items: [
+            { name: "LangGraph", level: 95 },
+            { name: "LangChain", level: 95 },
+            { name: "Tool Calling", level: 90 },
+            { name: "Multi-Agent Architecture", level: 95 },
+            { name: "RAG", level: 90 },
           ],
         },
         {
@@ -111,8 +104,8 @@ export const translations = {
           name: "ERP Frameworks",
           icon: "erp",
           items: [
+            { name: "Frappe Framework / ERPNext", level: 95 },
             { name: "Odoo Development", level: 90 },
-            { name: "Frappe Framework / ERPNext", level: 90 },
           ],
         },
         {
@@ -154,6 +147,38 @@ export const translations = {
       subtitle: "Real systems built for real business problems.",
       items: [
         {
+          id: "razyyn-ai",
+          tag: "Autonomous AI SaaS · Founder",
+          date: "August 2026",
+          title: "Razyyn AI — Autonomous AI Accountant for Modern ERPs",
+          description: "An autonomous AI accounting SaaS platform built to operate across modern ERP systems, currently supporting ERPNext and Odoo. Founded by Marwan, the system provides autonomous agent workflows to analyse financial data, perform compliance audits, reconcile bank statements, and post transactional entries. Includes native custom applications for both Frappe Version 14 and Frappe Version 15 with an interactive chat interface inside ERPNext.",
+          highlights: [
+            "Multi-Agent Modes: Specialized autonomous workflows for Ask (financial Q&A), Analyse (data analysis of ledgers & statements), Audit (compliance checks), Reconcile (bank statement matching), and Create (ERP document posting)",
+            "Dual Frappe Applications (v14 & v15): Native custom apps for Frappe Version 14 and Version 15 with an embedded chat interface, streaming responses, and financial document attachment processing",
+            "Multi-ERP Compatibility: Architected to integrate seamlessly with both ERPNext and Odoo",
+            "Security & Policy Controls: Strict write policy enforcement, role permissions, and atomic transaction rollbacks",
+          ],
+          tech: ["Python", "FastAPI", "LangGraph", "LangChain", "ERPNext / Frappe (v14 & v15)", "Odoo", "PostgreSQL", "Redis", "Docker"],
+          videoLink: "https://www.youtube.com/watch?v=cB41e6QtV6Y",
+          videoLabel: "Watch Demo Video",
+        },
+        {
+          id: "ecommerce-ops",
+          tag: "E-Commerce Platform",
+          date: "June 2026",
+          title: "Integrated E-Commerce & Enterprise Operations Platform",
+          description: "A comprehensive e-commerce platform and centralized operations control panel. Integrates deeply with ERPNext to synchronize sales, catalog, and inventory while driving full logistics, driver scheduling, and support workflows.",
+          highlights: [
+            "Logistics & Dispatch Engine: Engineered real-time driver assignment, delivery scheduling, and installation tracking for logistics operations",
+            "Centralized Operations Panel: Built full administrative controls for managing products, catalogs, areas/vehicles, work hours, and users/roles",
+            "Support & Ticket Management: Integrated customer support ticketing with maintenance technician scheduling and field operator allocation",
+            "ERPNext Integration: Automated bidirectional synchronization of Sales Orders, Delivery Notes, and stock updates with comprehensive activity logging",
+          ],
+          tech: ["Python", "FastAPI", "ERPNext Integration", "PostgreSQL", "REST APIs"],
+          link: "https://order007.megahome.bh/en",
+          linkLabel: "Live Website",
+        },
+        {
           id: "office-leaks",
           tag: "Full-Stack Social Network",
           date: "July 2026",
@@ -167,22 +192,6 @@ export const translations = {
           tech: ["Python", "Django", "Django REST Framework", "PostgreSQL", "Git"],
           link: "https://github.com/Marwan-badr543/Office-Leaks",
           linkLabel: "View GitHub Repo",
-        },
-        {
-          id: "ecommerce-ops",
-          tag: "Full-Stack System (In Dev)",
-          date: "June 2026",
-          title: "Integrated E-Commerce & Enterprise Operations Management",
-          description: "A comprehensive e-commerce platform and centralized operations control panel in development. Integrates deeply with ERPNext to synchronize sales, catalog, and inventory while driving full logistics, driver scheduling, and support workflows.",
-          highlights: [
-            "Logistics & Dispatch Engine: Engineered real-time driver assignment, delivery scheduling, and installation tracking for logistics operations",
-            "Centralized Operations Panel: Built full administrative controls for managing products, catalogs, areas/vehicles, work hours, and users/roles",
-            "Support & Ticket Management: Integrated customer support ticketing with maintenance technician scheduling and field operator allocation",
-            "ERPNext Integration: Automated bidirectional synchronization of Sales Orders, Delivery Notes, and stock updates with comprehensive activity logging",
-          ],
-          tech: ["Python", "FastAPI", "ERPNext Integration", "PostgreSQL", "REST APIs"],
-          link: "http://163.172.120.127:7100/en",
-          linkLabel: "Live Website",
         },
         {
           id: "sync-engine",
@@ -331,13 +340,13 @@ export const translations = {
     contact: {
       badge: "Let's Connect",
       title: "Get In Touch",
-      subtitle: "Looking for a backend & ERP developer who understands accounting? Let's talk.",
-      subtitle_2: "Have an ERP project that needs solid architecture and accurate business logic? Drop me a message or schedule a call.",
+      subtitle: "Looking for a software engineer specializing in backend, ERP & AI systems? Let's talk.",
+      subtitle_2: "Have a project that needs solid architecture, ERP integrations, or autonomous AI agents? Drop me a message or schedule a call.",
       links: {
         github: "GitHub",
         linkedin: "LinkedIn",
       },
-      availability: "Currently working remotely as a Backend Developer at Showsatellite (Bahrain) · Open to new full-time, remote & contract opportunities.",
+      availability: "Open to new full-time, remote & contract opportunities as a Software Engineer.",
     },
     footer: {
       built: "Built with precision by",

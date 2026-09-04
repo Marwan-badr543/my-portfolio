@@ -315,67 +315,38 @@ export default function Portfolio() {
             <p className="text-slate-400 text-lg">{t.edge.subtitle}</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <motion.div
-              className="space-y-5 text-slate-300 leading-relaxed"
-              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <p>{t.edge.p1}</p>
-              <p>{t.edge.p2}</p>
-              <p className="text-cyan-400 font-semibold text-lg border-s-2 border-cyan-500 ps-4">
-                {t.edge.p3}
-              </p>
+          <motion.div
+            className="space-y-5 text-slate-300 leading-relaxed"
+            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <p>{t.edge.p1}</p>
+            <p>{t.edge.p2}</p>
+            <p className="text-cyan-400 font-semibold text-lg border-s-2 border-cyan-500 ps-4">
+              {t.edge.p3}
+            </p>
 
-              <div className="mt-8 p-4 rounded border border-slate-700/50 bg-slate-800/30 font-mono text-xs text-slate-500">
-                <div className="text-cyan-400 mb-2">// Marwan's approach</div>
-                <div>
-                  <span className="text-purple-400">class</span>{" "}
-                  <span className="text-yellow-300">ERPSolutionArchitect</span>:
-                </div>
-                <div className="ps-4">
-                  <span className="text-slate-400">def </span>
-                  <span className="text-blue-400">solve</span>
-                  <span className="text-slate-400">(self, problem):</span>
-                </div>
-                <div className="ps-8 text-slate-500">
-                  understand_business_first()
-                </div>
-                <div className="ps-8 text-slate-500">identify_root_cause()</div>
-                <div className="ps-8 text-slate-500">implement_solution()</div>
-                <div className="ps-8 text-cyan-400">return business_value</div>
+            <div className="mt-8 p-4 rounded border border-slate-700/50 bg-slate-800/30 font-mono text-xs text-slate-500">
+              <div className="text-cyan-400 mb-2">// Marwan's approach</div>
+              <div>
+                <span className="text-purple-400">class</span>{" "}
+                <span className="text-yellow-300">ERPSolutionArchitect</span>:
               </div>
-            </motion.div>
-
-            <div className="grid gap-4">
-              {t.edge.pillars.map((pillar, i) => {
-                const Icon = iconMap[pillar.icon] || Cpu;
-                return (
-                  <motion.div
-                    key={i}
-                    className="p-5 rounded border border-slate-700/50 bg-slate-800/30 card-hover group"
-                    data-testid={`card-pillar-${i}`}
-                    initial={{ opacity: 0, x: 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: i * 0.2 }}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="shrink-0 w-10 h-10 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                        <Icon size={18} className="text-cyan-400" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-slate-100 mb-1">{pillar.title}</h3>
-                        <p className="text-sm text-slate-400 leading-relaxed">{pillar.desc}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+              <div className="ps-4">
+                <span className="text-slate-400">def </span>
+                <span className="text-blue-400">solve</span>
+                <span className="text-slate-400">(self, problem):</span>
+              </div>
+              <div className="ps-8 text-slate-500">
+                understand_business_first()
+              </div>
+              <div className="ps-8 text-slate-500">identify_root_cause()</div>
+              <div className="ps-8 text-slate-500">implement_solution()</div>
+              <div className="ps-8 text-cyan-400">return business_value</div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
