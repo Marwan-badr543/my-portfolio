@@ -16,9 +16,9 @@ export const translations = {
     hero: {
       badge: "Open to Work",
       headline: "I Build Systems That Speak the Language of Business.",
-      subheadline: "Software Engineer | Backend, ERP & AI Systems",
+      subheadline: "Software Developer | Backend, ERP & AI Systems",
       description:
-        "Software Engineer specializing in robust backend architectures, ERP engineering (Frappe, Odoo), and Agentic AI workflows. Combines an accounting background with production experience in Python, FastAPI, and LangGraph to build high-performance APIs, custom business modules, and autonomous, LLM-driven agents. Focused on clean system design, data integrity, and end-to-end automation.",
+        "Software Developer specializing in robust backend architectures, ERP engineering (Frappe, Odoo), and Agentic AI workflows. Combines an accounting background with production experience in Python, FastAPI, and LangGraph to build high-performance APIs, custom business modules, and autonomous, LLM-driven agents. Focused on clean system design, data integrity, and end-to-end automation.",
       cta: "View My Work",
       ctaContact: "Get in Touch",
       scrollDown: "Scroll to explore",
@@ -38,7 +38,7 @@ export const translations = {
       subtitle: "My career path engineering robust software, ERP systems, and business platforms.",
       items: [
         {
-          role: "Software Engineer",
+          role: "Software Developer",
           company: "Showsatellite",
           location: "Remote (Bahrain)",
           period: "March 2026 – Present",
@@ -151,14 +151,14 @@ export const translations = {
           tag: "Autonomous AI SaaS · Founder",
           date: "August 2026",
           title: "Razyyn AI — Autonomous AI Accountant for Modern ERPs",
-          description: "An autonomous AI accounting SaaS platform built to operate across modern ERP systems, currently supporting ERPNext and Odoo. Founded by Marwan, the system provides autonomous agent workflows to analyse financial data, perform compliance audits, reconcile bank statements, and post transactional entries. Includes native custom applications for both Frappe Version 14 and Frappe Version 15 with an interactive chat interface inside ERPNext.",
+          description: "An autonomous AI accounting SaaS platform built to operate across modern ERP systems, currently supporting ERPNext and Odoo. Founded by Marwan, the system provides autonomous agent workflows to analyse financial data, perform compliance audits, reconcile bank statements, and post transactional entries.",
           highlights: [
-            "Multi-Agent Modes: Specialized autonomous workflows for Ask (financial Q&A), Analyse (data analysis of ledgers & statements), Audit (compliance checks), Reconcile (bank statement matching), and Create (ERP document posting)",
-            "Dual Frappe Applications (v14 & v15): Native custom apps for Frappe Version 14 and Version 15 with an embedded chat interface, streaming responses, and financial document attachment processing",
-            "Multi-ERP Compatibility: Architected to integrate seamlessly with both ERPNext and Odoo",
-            "Security & Policy Controls: Strict write policy enforcement, role permissions, and atomic transaction rollbacks",
+            "Multi-Agent Workflows: Autonomous workflows for Ask (financial Q&A), Analyse (data analysis of ledgers & statements), Audit (compliance checks), and Reconcile (bank statement matching)",
+            "Multi-ERP Architecture: Built to connect securely with modern ERP backends including ERPNext and Odoo",
+            "Financial Intelligence: Autonomous data extraction, ledger reconciliation, and variance analysis from financial statements",
+            "Enterprise Security: Strict policy guardrails, validation boundaries, and complete audit trail logging",
           ],
-          tech: ["Python", "FastAPI", "LangGraph", "LangChain", "ERPNext / Frappe (v14 & v15)", "Odoo", "PostgreSQL", "Redis", "Docker"],
+          tech: ["Python", "FastAPI", "LangGraph", "LangChain", "ERPNext", "Odoo", "PostgreSQL", "Redis", "Docker"],
           videoLink: "https://www.youtube.com/watch?v=cB41e6QtV6Y",
           videoLabel: "Watch Demo Video",
         },
@@ -177,6 +177,25 @@ export const translations = {
           tech: ["Python", "FastAPI", "ERPNext Integration", "PostgreSQL", "REST APIs"],
           link: "https://order007.megahome.bh/en",
           linkLabel: "Live Website",
+        },
+        {
+          id: "razyyn-frappe-apps",
+          tag: "Frappe & ERPNext Apps",
+          date: "August 2026",
+          title: "Razyyn AI — Native Frappe Applications (v14 & v15)",
+          description: "Custom Frappe applications built for both Frappe Version 14 and Version 15 to seamlessly integrate Razyyn AI directly into ERPNext. Exposes an interactive in-ERP chat interface, manages secure communication with the AI server, and enforces granular write policies for accounting operations.",
+          highlights: [
+            "In-ERP Chat Interface: Custom desk page with streaming responses, typing indicators, clarification dialogs, and Mermaid chart visualizations",
+            "Multi-Agent Mode Execution: Built-in selector supporting Ask Mode (accounting Q&A), Analyse Mode (financial analysis), and Audit Mode (compliance verification)",
+            "Financial Attachment Processing: Secure drag-and-drop file upload handler supporting PDF, Excel, CSV, Word, and images with mode-based size limits",
+            "Granular Policy & Audit Guardrails: Custom DocTypes (Agent Write Policy, Allowed DocTypes, Blocked Accounts, Write Caps) preventing unauthorized accounting entries with complete audit logging",
+            "Secure Auth & Query Guard: Single Sign-On (SSO) with JWT verification, query guards against unauthorized data access, and Telegram notification dispatcher",
+          ],
+          tech: ["Frappe Framework (v14 & v15)", "ERPNext", "Python", "JavaScript", "REST APIs", "MariaDB", "JWT"],
+          link: "https://github.com/Marwan-badr543/accountant-agent-frappe-15",
+          linkLabel: "Frappe v15 Repo",
+          secondaryLink: "https://github.com/Marwan-badr543/accountant-agent-frappe-14",
+          secondaryLinkLabel: "Frappe v14 Repo",
         },
         {
           id: "office-leaks",
@@ -340,13 +359,13 @@ export const translations = {
     contact: {
       badge: "Let's Connect",
       title: "Get In Touch",
-      subtitle: "Looking for a software engineer specializing in backend, ERP & AI systems? Let's talk.",
+      subtitle: "Looking for a software developer specializing in backend, ERP & AI systems? Let's talk.",
       subtitle_2: "Have a project that needs solid architecture, ERP integrations, or autonomous AI agents? Drop me a message or schedule a call.",
       links: {
         github: "GitHub",
         linkedin: "LinkedIn",
       },
-      availability: "Open to new full-time, remote & contract opportunities as a Software Engineer.",
+      availability: "Open to new full-time, remote & contract opportunities as a Software Developer.",
     },
     footer: {
       built: "Built with precision by",

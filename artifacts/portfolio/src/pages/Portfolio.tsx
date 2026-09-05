@@ -501,8 +501,21 @@ export default function Portfolio() {
                         rel="noopener noreferrer"
                         className="w-8 h-8 rounded border border-slate-700 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
                         data-testid={`link-project-${project.id}-external`}
+                        title={(project as { linkLabel?: string }).linkLabel || "Link"}
                       >
-                        <ExternalLink size={14} />
+                        {project.link.includes("github.com") ? <Github size={14} /> : <ExternalLink size={14} />}
+                      </a>
+                    )}
+                    {"secondaryLink" in project && (project as { secondaryLink?: string }).secondaryLink && (
+                      <a
+                        href={(project as { secondaryLink?: string }).secondaryLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded border border-slate-700 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
+                        data-testid={`link-project-${project.id}-secondary`}
+                        title={(project as { secondaryLinkLabel?: string }).secondaryLinkLabel || "GitHub Repo"}
+                      >
+                        <Github size={14} />
                       </a>
                     )}
                     {"videoLink" in project && project.videoLink && (
@@ -544,7 +557,7 @@ export default function Portfolio() {
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   {"link" in project && project.link && (
                     <a
                       href={project.link}
@@ -553,8 +566,20 @@ export default function Portfolio() {
                       className="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
                       data-testid={`link-project-${project.id}-cta`}
                     >
-                      <ExternalLink size={14} />
+                      {project.link.includes("github.com") ? <Github size={14} /> : <ExternalLink size={14} />}
                       {(project as { linkLabel?: string }).linkLabel}
+                    </a>
+                  )}
+                  {"secondaryLink" in project && (project as { secondaryLink?: string }).secondaryLink && (
+                    <a
+                      href={(project as { secondaryLink?: string }).secondaryLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
+                      data-testid={`link-project-${project.id}-secondary-cta`}
+                    >
+                      <Github size={14} />
+                      {(project as { secondaryLinkLabel?: string }).secondaryLinkLabel}
                     </a>
                   )}
                   {"videoLink" in project && project.videoLink && (
