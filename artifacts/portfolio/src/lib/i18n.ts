@@ -159,6 +159,8 @@ export const translations = {
             "Enterprise Security: Strict policy guardrails, validation boundaries, and complete audit trail logging",
           ],
           tech: ["Python", "FastAPI", "LangGraph", "LangChain", "ERPNext", "Odoo", "PostgreSQL", "Redis", "Docker"],
+          link: "https://razyyn.com/",
+          linkLabel: "Landing Page",
           videoLink: "https://www.youtube.com/watch?v=cB41e6QtV6Y",
           videoLabel: "Watch Demo Video",
         },
