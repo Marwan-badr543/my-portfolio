@@ -90,7 +90,7 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const sections = ["home", "about", "experience", "skills", "projects", "resume", "contact"];
+    const sections = ["home", "about", "experience", "projects", "skills", "resume", "contact"];
     const observers: IntersectionObserver[] = [];
 
     sections.forEach((id) => {
@@ -123,8 +123,8 @@ export default function Portfolio() {
     { id: "home", label: t.nav.home },
     { id: "about", label: t.nav.about },
     { id: "experience", label: t.nav.experience },
-    { id: "skills", label: t.nav.skills },
     { id: "projects", label: t.nav.projects },
+    { id: "skills", label: t.nav.skills },
     { id: "resume", label: t.nav.resume },
     { id: "contact", label: t.nav.contact },
   ];
@@ -408,54 +408,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* SKILLS */}
-      <section id="skills" className="py-24 bg-slate-900/40" ref={skillsSection.ref}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="mb-12">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="section-line" />
-              <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
-                {t.skills.badge}
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3">{t.skills.title}</h2>
-            <p className="text-slate-400">{t.skills.subtitle}</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-            {t.skills.categories.map((cat, ci) => {
-              const CatIcon = iconMap[cat.icon] || Cpu;
-              return (
-                <motion.div
-                  key={ci}
-                  className="p-5 rounded border border-slate-700/50 bg-slate-800/30 card-hover"
-                  data-testid={`card-skill-category-${ci}`}
-                  initial={{ opacity: 0, scale: 0.9, y: 40 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: ci * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-8 h-8 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-                      <CatIcon size={15} className="text-cyan-400" />
-                    </div>
-                    <h3 className="font-semibold text-slate-100 text-sm">{cat.name}</h3>
-                  </div>
-                  {cat.items.map((item, ii) => (
-                    <SkillBar
-                      key={ii}
-                      name={item.name}
-                      isVisible={skillsSection.isVisible}
-                      delay={ci * 100 + ii * 80}
-                    />
-                  ))}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* PROJECTS */}
       <section id="projects" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -597,6 +549,54 @@ export default function Portfolio() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section id="skills" className="py-24 bg-slate-900/40" ref={skillsSection.ref}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="mb-12">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="section-line" />
+              <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
+                {t.skills.badge}
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3">{t.skills.title}</h2>
+            <p className="text-slate-400">{t.skills.subtitle}</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+            {t.skills.categories.map((cat, ci) => {
+              const CatIcon = iconMap[cat.icon] || Cpu;
+              return (
+                <motion.div
+                  key={ci}
+                  className="p-5 rounded border border-slate-700/50 bg-slate-800/30 card-hover"
+                  data-testid={`card-skill-category-${ci}`}
+                  initial={{ opacity: 0, scale: 0.9, y: 40 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: ci * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-8 h-8 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                      <CatIcon size={15} className="text-cyan-400" />
+                    </div>
+                    <h3 className="font-semibold text-slate-100 text-sm">{cat.name}</h3>
+                  </div>
+                  {cat.items.map((item, ii) => (
+                    <SkillBar
+                      key={ii}
+                      name={item.name}
+                      isVisible={skillsSection.isVisible}
+                      delay={ci * 100 + ii * 80}
+                    />
+                  ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
