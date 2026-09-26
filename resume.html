@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Marwan Badr - Resume</title>
+<style>
+  @page {
+    size: A4;
+    margin: 8mm 11mm;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1e293b;
+    line-height: 1.3;
+    font-size: 8.3pt;
+    background: #fff;
+  }
+  a {
+    color: #0284c7;
+    text-decoration: none;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid #0284c7;
+  }
+  .name {
+    font-size: 16pt;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+    margin-bottom: 1px;
+  }
+  .title {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #0284c7;
+    margin-bottom: 3px;
+    letter-spacing: 0.01em;
+  }
+  .contacts {
+    font-size: 7.8pt;
+    color: #475569;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .contacts span.dot {
+    color: #cbd5e1;
+  }
+
+  .section {
+    margin-bottom: 5.5px;
+  }
+  .section-title {
+    font-size: 8.6pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #0f172a;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 1.5px;
+    margin-bottom: 3.5px;
+  }
+
+  .summary {
+    text-align: justify;
+    color: #334155;
+    font-size: 8pt;
+    line-height: 1.32;
+  }
+
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.9pt;
+  }
+  .skills-table td {
+    padding: 1px 0;
+    vertical-align: top;
+  }
+  .skills-table td.skill-lbl {
+    font-weight: 700;
+    color: #0f172a;
+    width: 125px;
+  }
+  .skills-table td.skill-val {
+    color: #334155;
+  }
+
+  .exp-item, .proj-item {
+    margin-bottom: 4px;
+  }
+  .exp-item:last-child, .proj-item:last-child {
+    margin-bottom: 0;
+  }
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+  .item-title {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 8.3pt;
+  }
+  .item-title span.role {
+    font-weight: 600;
+    color: #0284c7;
+  }
+  .item-tech {
+    font-size: 7.4pt;
+    font-weight: 600;
+    color: #64748b;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  .item-date {
+    font-size: 7.8pt;
+    font-weight: 600;
+    color: #64748b;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .item-sub {
+    font-size: 7.6pt;
+    color: #475569;
+    font-style: italic;
+    margin-bottom: 1.5px;
+  }
+
+  ul.bullets {
+    padding-left: 13px;
+    list-style-type: disc;
+  }
+  ul.bullets li {
+    font-size: 7.9pt;
+    color: #334155;
+    margin-bottom: 1px;
+    line-height: 1.28;
+  }
+  ul.bullets li strong {
+    color: #0f172a;
+  }
+
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 8pt;
+    margin-bottom: 1.5px;
+  }
+
+  .cert-row {
+    font-size: 7.9pt;
+    color: #334155;
+    line-height: 1.3;
+  }
+  .cert-row strong {
+    color: #0f172a;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="name">Marwan Badr</div>
+  <div class="title">Software Developer | Backend, ERP & AI Systems</div>
+  <div class="contacts">
+    <span><a href="mailto:marwanbadr514@gmail.com">marwanbadr514@gmail.com</a></span>
+    <span class="dot">•</span>
+    <span><a href="tel:+201007258086">+20 100 725 8086</a></span>
+    <span class="dot">•</span>
+    <span>Al-Menoufia, Egypt</span>
+    <span class="dot">•</span>
+    <span><a href="https://github.com/Marwan-badr543">github.com/Marwan-badr543</a></span>
+    <span class="dot">•</span>
+    <span><a href="https://linkedin.com/in/marwan-badr-4553a42bb">linkedin.com/in/marwan-badr-4553a42bb</a></span>
+    <span class="dot">•</span>
+    <span><a href="https://my-portfolio-portfolio-iota.vercel.app">Portfolio</a></span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Professional Summary</div>
+  <div class="summary">
+    Software Developer specializing in robust backend architectures, ERP engineering (Frappe/ERPNext, Odoo), and Agentic AI workflows. Combines an accounting background (B.Com in Accounting, English Section) with production experience in Python, FastAPI, and LangGraph to build high-performance APIs, custom enterprise business modules, and autonomous multi-agent LLM systems. Dedicated to clean architecture, financial data integrity, and end-to-end business automation.
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Technical Skills</div>
+  <table class="skills-table">
+    <tr>
+      <td class="skill-lbl">AI & Agentic Systems:</td>
+      <td class="skill-val">LangGraph, LangChain, Multi-Agent Orchestration, Tool Calling, RAG, Structured Output</td>
+    </tr>
+    <tr>
+      <td class="skill-lbl">ERP Frameworks:</td>
+      <td class="skill-val">Frappe Framework, ERPNext (v14 & v15), Odoo Development (v17 & v18), DocTypes, Hooks, Server Scripts</td>
+    </tr>
+    <tr>
+      <td class="skill-lbl">Backend & APIs:</td>
+      <td class="skill-val">Python, FastAPI, Django, Django REST Framework (DRF), RESTful APIs, Webhooks, SSE Streaming</td>
+    </tr>
+    <tr>
+      <td class="skill-lbl">Databases & Cache:</td>
+      <td class="skill-val">PostgreSQL, MariaDB, MySQL, Redis (caching & task state), Qdrant (Vector DB), SQLAlchemy</td>
+    </tr>
+    <tr>
+      <td class="skill-lbl">Languages & Web:</td>
+      <td class="skill-val">Python, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS, Next.js, React, PyQt5</td>
+    </tr>
+    <tr>
+      <td class="skill-lbl">DevOps & Tools:</td>
+      <td class="skill-val">Docker, Git, GitHub, Linux, Uvicorn, Caddy, CI/CD Workflows</td>
+    </tr>
+    <tr>
+      <td class="skill-lbl">Accounting Domain:</td>
+      <td class="skill-val">Professional Financial Accounting (PFA), General Ledgers, Bank Reconciliation, Periodic Audit, Chart of Accounts</td>
+    </tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">Professional Experience</div>
+  <div class="exp-item">
+    <div class="item-header">
+      <div class="item-title">Showsatellite <span class="role">— Software Developer</span></div>
+      <div class="item-date">Mar 2026 – Present | Remote (Bahrain)</div>
+    </div>
+    <div class="item-sub">Premier Home Appliances Retail Company in Bahrain</div>
+    <ul class="bullets">
+      <li>Lead custom Frappe / ERPNext engineering: custom DocTypes, client/server scripts, and automated accounting workflows.</li>
+      <li>Engineered high-throughput real-time sync engine between ERPNext and OpenCart automating products, inventory, prices, and media.</li>
+      <li>Built centralized operations logistics dashboard managing TV/AC delivery scheduling, real-time driver dispatch, and support ticketing.</li>
+    </ul>
+  </div>
+  <div class="exp-item" style="margin-top: 2px;">
+    <div class="item-header">
+      <div class="item-title">Minicash Furniture Company <span class="role">— Accountant</span></div>
+      <div class="item-date">Feb 2026 – Mar 2026 | Onsite (Egypt)</div>
+    </div>
+    <ul class="bullets">
+      <li>Managed daily accounting operations, general ledger journal entries, AR/AP reconciliations, and trial balance verification.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Featured Projects</div>
+
+  <div class="proj-item">
+    <div class="item-header">
+      <div class="item-title">Razyyn AI — Autonomous AI Accountant Platform (Founder & Lead Architect)</div>
+      <div class="item-tech">Python · FastAPI · LangGraph · PostgreSQL · Redis · Qdrant</div>
+    </div>
+    <ul class="bullets">
+      <li>Architected an autonomous AI virtual finance SaaS integrating natively with ERPNext and Odoo (<a href="https://razyyn.com">razyyn.com</a>).</li>
+      <li>Engineered Master Router coordinating 6 specialist desks (Ask, Analyse, Reconcile, Audit, Record, Update) with LangGraph & FastAPI.</li>
+      <li>Built 10-tier algorithmic bank reconciliation engine matching statements to ledgers with zero unexplained discrepancies.</li>
+      <li>Implemented dual-gated write security (ERP RBAC + Razyyn Write Policy with caps & blocked accounts) with human approval cards.</li>
+      <li>Developed AST SQL query rewriting engine (<code>sqlglot</code>) enforcing live/posted rows across all queries, isolating draft/cancelled records.</li>
+    </ul>
+  </div>
+
+  <div class="proj-item">
+    <div class="item-header">
+      <div class="item-title">Razyyn AI — Native Odoo Integration Modules (v17 & v18)</div>
+      <div class="item-tech">Odoo 17 · Odoo 18 · Python · XML · JavaScript · PostgreSQL · SSE</div>
+    </div>
+    <ul class="bullets">
+      <li>Built custom native Odoo addons for Odoo 17 & 18 (self-hosted & Odoo.sh) embedding the AI assistant into the Odoo web client.</li>
+      <li>Implemented in-ERP chat UI with SSE streaming, conversation persistence, and interactive approval cards for draft invoices & entries.</li>
+      <li>Created guarded HTTP write gateway with preflight schema validation, draft invoice creation, and immutable audit logs.</li>
+      <li>Built safe model browsing and AST live row filters ensuring read isolation and preventing Cartesian joins across Odoo models.</li>
+    </ul>
+  </div>
+
+  <div class="proj-item">
+    <div class="item-header">
+      <div class="item-title">Razyyn AI — Native Frappe Applications (v14 & v15)</div>
+      <div class="item-tech">Frappe Framework (v14 & v15) · ERPNext · Python · JavaScript · MariaDB · JWT</div>
+    </div>
+    <ul class="bullets">
+      <li>Developed custom Frappe apps for Frappe v14 & v15 providing an in-ERP desk chat page with streaming and Mermaid diagram rendering.</li>
+      <li>Implemented granular Agent Write Policy DocTypes (amount caps, blocked accounts, allowed DocTypes) preventing unauthorized writes.</li>
+      <li>Built financial attachment processor and OCR pipeline handling PDF, Excel (XLSX), CSV, Word, and receipts.</li>
+    </ul>
+  </div>
+
+  <div class="proj-item">
+    <div class="item-header">
+      <div class="item-title">Integrated E-Commerce & Enterprise Operations Platform</div>
+      <div class="item-tech">Python · FastAPI · ERPNext · PostgreSQL · REST APIs</div>
+    </div>
+    <ul class="bullets">
+      <li>Built full retail platform integrated with ERPNext automating Sales Orders, Delivery Notes, and driver logistics (<a href="https://order007.megahome.bh/en">Live Site</a>).</li>
+    </ul>
+  </div>
+
+  <div class="proj-item">
+    <div class="item-header">
+      <div class="item-title">Real-Time Synchronization Engine: ERPNext ↔ OpenCart</div>
+      <div class="item-tech">Python · FastAPI · REST APIs · ERPNext · OpenCart</div>
+    </div>
+    <ul class="bullets">
+      <li>Engineered bidirectional sync engine automating product catalogs, price tiers, stock, and images (<a href="https://youtu.be/dLG_WjKm_7c">Demo Video</a>).</li>
+    </ul>
+  </div>
+
+  <div class="proj-item">
+    <div class="item-header">
+      <div class="item-title">Office Leaks — Professional Corporate Social Network</div>
+      <div class="item-tech">Python · Django · Django REST Framework (DRF) · PostgreSQL</div>
+    </div>
+    <ul class="bullets">
+      <li>Corporate transparency platform with company reviews, workplace culture ratings, and secure DRF REST APIs (<a href="https://github.com/Marwan-badr543/Office-Leaks">GitHub</a>).</li>
+    </ul>
+  </div>
+
+  <div class="proj-item">
+    <div class="item-header">
+      <div class="item-title">Telegram Notification Manager (Frappe App)</div>
+      <div class="item-tech">Frappe Framework · Python · Telegram Bot API</div>
+    </div>
+    <ul class="bullets">
+      <li>Hook-driven notification app triggering real-time interactive Telegram alerts with action buttons for Frappe DocTypes (<a href="https://github.com/Marwan-badr543/Telegram-Notification-Frappe-app">GitHub</a>).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Education & Certifications</div>
+  <div class="edu-row">
+    <div><strong>Menofia University</strong> — Bachelor of Commerce, Accounting (English Section) — <em>Grade: Very Good</em></div>
+    <div>Graduated 2025</div>
+  </div>
+  <div class="cert-row" style="margin-top: 1.5px;">
+    <strong>Certifications & Training:</strong> Professional Financial Accountant (PFA) • Frappe / ERPNext Development • Odoo Development & Functional Accounting • Web Development with FastAPI & SQLAlchemy • Prompt Engineering
+  </div>
+</div>
+
+<div class="section" style="margin-bottom: 0;">
+  <div class="section-title">Additional Information</div>
+  <div class="cert-row">
+    <strong>Languages:</strong> Arabic (Native), English (Professional Working Proficiency) &nbsp;|&nbsp; <strong>Military Status:</strong> Permanently Exempted
+  </div>
+</div>
+
+</body>
+</html>
