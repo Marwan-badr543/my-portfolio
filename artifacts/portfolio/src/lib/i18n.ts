@@ -38,6 +38,13 @@ export const translations = {
       subtitle: "My career path engineering robust software, ERP systems, and business platforms.",
       items: [
         {
+          role: "Founder & Lead Architect",
+          company: "Razyyn AI",
+          location: "Remote",
+          period: "August 2026 – Present",
+          description: "Architected and delivered the full autonomous AI accounting virtual finance department ecosystem: multi-agent AI backend (FastAPI, LangGraph), operator admin panel (React/Vite), multilingual landing platform (Next.js), native Frappe apps (v14/v15), and native Odoo modules (v17/v18). Led product strategy, financial data modeling, sales kits, and technical marketing across the MENA region.",
+        },
+        {
           role: "Software Developer",
           company: "Showsatellite",
           location: "Remote (Bahrain)",
