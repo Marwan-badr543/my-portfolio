@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import type { MouseEvent as ReactMouseEvent, ReactNode, ElementType } from "react";
 import { translations } from "@/lib/i18n";
+import Starfield from "@/components/Starfield";
+import CursorGlow from "@/components/CursorGlow";
 import {
   motion,
   AnimatePresence,
   MotionConfig,
   useScroll,
   useSpring,
+  useTransform,
 } from "framer-motion";
 import {
   Github,
@@ -150,12 +153,26 @@ function SectionHeading({ badge, title, subtitle, large }: SectionHeadingProps) 
           {badge}
         </span>
       </div>
-      <h2 className="text-4xl sm:text-5xl font-semibold tracking-[-0.035em] leading-[1.05] mb-4 text-gradient">
-        {title}
+      <h2 className="overflow-hidden pb-1 mb-3">
+        <motion.span
+          className="block text-4xl sm:text-5xl font-semibold tracking-[-0.035em] leading-[1.1] text-gradient"
+          initial={{ y: "105%" }}
+          whileInView={{ y: "0%" }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
+        >
+          {title}
+        </motion.span>
       </h2>
-      <p className={`text-zinc-400 leading-relaxed ${large ? "text-lg" : "text-base sm:text-lg"}`}>
+      <motion.p
+        className={`text-zinc-400 leading-relaxed ${large ? "text-lg" : "text-base sm:text-lg"}`}
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
+      >
         {subtitle}
-      </p>
+      </motion.p>
     </motion.div>
   );
 }
@@ -190,6 +207,16 @@ export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
 
   const t = translations.en;
+
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useTransform(heroProgress, [0, 1], [0, 160]);
+  const heroOpacity = useTransform(heroProgress, [0, 0.7], [1, 0]);
+  const heroScale = useTransform(heroProgress, [0, 1], [1, 0.94]);
+  const skyY = useTransform(heroProgress, [0, 1], [0, 90]);
 
   const timelineRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: timelineProgress } = useScroll({
@@ -272,6 +299,7 @@ export default function Portfolio() {
     <MotionConfig reducedMotion="user">
       <div className="relative min-h-screen bg-[#05060a] text-zinc-100 overflow-x-hidden">
         <div className="grain" aria-hidden />
+        <CursorGlow />
 
         {/* Scroll progress */}
         <motion.div
@@ -361,24 +389,22 @@ export default function Portfolio() {
         {/* HERO */}
         <section
           id="home"
+          ref={heroRef}
           className="relative min-h-[100svh] flex items-center pt-24 overflow-hidden"
-          onMouseMove={handleSpotlight}
         >
-          <div className="absolute inset-0 dot-grid" aria-hidden />
+          <motion.div className="absolute inset-0 star-mask-hero" style={{ y: skyY }} aria-hidden>
+            <Starfield density={4200} shootingEvery={2200} />
+          </motion.div>
+          <div className="absolute inset-0 dot-grid opacity-60" aria-hidden />
           <div className="aurora aurora-1" aria-hidden />
           <div className="aurora aurora-2" aria-hidden />
           <div className="aurora aurora-3" aria-hidden />
-          <div
-            className="absolute inset-0 pointer-events-none hidden md:block"
-            style={{
-              background:
-                "radial-gradient(600px circle at var(--mx, 50%) var(--my, 40%), rgba(56,189,248,0.07), transparent 45%)",
-            }}
-            aria-hidden
-          />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#05060a]" aria-hidden />
 
-          <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 py-20">
+          <motion.div
+            className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 py-20"
+            style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
+          >
             <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
               <motion.h1
                 className="text-[3.25rem] leading-[1] sm:text-7xl lg:text-[6.5rem] font-semibold tracking-[-0.05em] mb-7 text-gradient pb-2"
@@ -469,7 +495,7 @@ export default function Portfolio() {
                 </button>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           <motion.button
             onClick={() => scrollTo("about")}
@@ -559,8 +585,8 @@ export default function Portfolio() {
                   <motion.div
                     key={i}
                     className="relative ps-10 sm:ps-14 group"
-                    initial={{ opacity: 0, y: 36 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 36, x: -16 }}
+                    whileInView={{ opacity: 1, y: 0, x: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.8, ease: EASE }}
                   >
@@ -700,18 +726,32 @@ export default function Portfolio() {
 
                     <ul className={`mb-7 flex-1 gap-x-8 gap-y-3 ${featured ? "grid md:grid-cols-2" : "grid"}`}>
                       {project.highlights.map((h, hi) => (
-                        <li key={hi} className="flex items-start gap-3 text-sm text-zinc-400 leading-relaxed">
+                        <motion.li
+                          key={hi}
+                          className="flex items-start gap-3 text-sm text-zinc-400 leading-relaxed"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-40px" }}
+                          transition={{ duration: 0.6, delay: 0.2 + hi * 0.07, ease: EASE }}
+                        >
                           <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-gradient-to-br from-cyan-300 to-indigo-400 shrink-0 shadow-[0_0_8px_rgba(56,189,248,0.6)]" />
                           {h}
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
 
                     <div className="flex flex-wrap gap-1.5 mb-6">
-                      {project.tech.map((tech) => (
-                        <span key={tech} className="chip text-[11px] px-2.5 py-1">
+                      {project.tech.map((tech, ti) => (
+                        <motion.span
+                          key={tech}
+                          className="chip text-[11px] px-2.5 py-1"
+                          initial={{ opacity: 0, scale: 0.85 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true, margin: "-40px" }}
+                          transition={{ duration: 0.4, delay: 0.3 + ti * 0.04, ease: EASE }}
+                        >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
 
@@ -887,7 +927,7 @@ export default function Portfolio() {
               {/* Right: Info card */}
               <Reveal className="lg:col-span-1 space-y-4 lg:sticky lg:top-28" delay={0.15}>
                 <div className="surface spotlight p-7" onMouseMove={handleSpotlight}>
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400/15 to-indigo-400/10 border border-cyan-300/20 flex items-center justify-center mb-6 shadow-[0_0_30px_-8px_rgba(56,189,248,0.6)]">
+                  <div className="float-slow w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400/15 to-indigo-400/10 border border-cyan-300/20 flex items-center justify-center mb-6 shadow-[0_0_30px_-8px_rgba(56,189,248,0.6)]">
                     <FileText size={24} className="text-cyan-300" />
                   </div>
                   <h3 className="text-2xl font-semibold tracking-tight text-white mb-3">Marwan Badr</h3>
@@ -931,6 +971,12 @@ export default function Portfolio() {
           </div>
         </section>
 
+        <div className="relative overflow-hidden">
+          <div className="absolute inset-0 star-mask-bottom" aria-hidden>
+            <Starfield density={3600} shootingEvery={1600} />
+          </div>
+          <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[1100px] max-w-[160%] h-[420px] rounded-[100%] bg-sky-500/[0.07] blur-3xl pointer-events-none" aria-hidden />
+
         {/* CONTACT */}
         <section id="contact" className="py-28 sm:py-32 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -938,7 +984,7 @@ export default function Portfolio() {
 
             <div className="grid lg:grid-cols-2 gap-5">
               <Reveal>
-                <div className="surface overflow-hidden p-8 sm:p-10 h-full flex flex-col justify-between gap-10">
+                <div className="surface backdrop-blur-md !bg-[#07080d]/70 overflow-hidden p-8 sm:p-10 h-full flex flex-col justify-between gap-10">
                   <div className="absolute -top-24 -start-24 w-72 h-72 rounded-full bg-sky-500/15 blur-3xl pointer-events-none" aria-hidden />
                   <div className="absolute -bottom-24 -end-16 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" aria-hidden />
                   <div className="absolute inset-0 dot-grid opacity-50 pointer-events-none" aria-hidden />
@@ -958,7 +1004,7 @@ export default function Portfolio() {
               </Reveal>
 
               <Reveal delay={0.12}>
-                <div className="surface p-6 sm:p-8 h-full flex flex-col gap-6">
+                <div className="surface backdrop-blur-md !bg-[#07080d]/70 p-6 sm:p-8 h-full flex flex-col gap-6">
                   <div className="space-y-3">
                     <a
                       href="mailto:marwanbadr514@gmail.com"
@@ -1035,7 +1081,8 @@ export default function Portfolio() {
         </section>
 
         {/* FOOTER */}
-        <footer className="relative border-t border-white/[0.06] py-10">
+        <div className="horizon" aria-hidden />
+        <footer className="relative py-10">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
             <div className="flex items-center gap-1">
               <span>{t.footer.built}</span>
@@ -1046,6 +1093,7 @@ export default function Portfolio() {
             </div>
           </div>
         </footer>
+        </div>
       </div>
     </MotionConfig>
   );
