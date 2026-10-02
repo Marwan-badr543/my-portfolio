@@ -4,3 +4,20 @@ update its description and cards beside it , make Programming first and appear
 delete persentages from skills 
 
 PORT=3000 BASE_PATH=/ pnpm --filter @workspace/portfolio dev
+
+
+
+❯ focus with me, you have to kow that i'm ai agents engineer and want to study hwo other ai agents was build to i learn that now, i'm suing langgraph in my projects , if you want to gime example use
+  langgraph, i'm python developer , backend , erp and ai systems engineer, .this is the most important task, i want you to check and study codex very well ,
+ i installed it in my pc here, so i want you to study it very well , and know how it work , i'm engineer 
+ and i want to build better ai agents ,so i want to understand how codex work and how it was
+  built to get more experience from very strong agents, i want full details and documentaion, tell
+   me about graph, tools design and how call it, context management , vector db, so i want full details 
+   i want to understand codex at all, you can make .md files here 
+   :/home/marwan/Programming/agentic_ai/agent_engineering_principles/codex ,, 
+   you can make multible files to explain each thing in details, the goal of this is to get how
+    cluade code was built as an engineer and improve my engineering skills in building ai agents
+    , go on.when typeing documentations , type it as a professional engieer teacher that explian
+     to student engineer  , so i want to understand all thing easy , so type it as a proff and i'm a 
+     student , but i want to understand all topics and all things , make sure to build the graph , 
+     use virtual graphs to understand better
