@@ -240,6 +240,24 @@ export const translations = {
           tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "FastAPI REST API", "JWT"],
         },
 
+        /* ── SILO AGENT ── */
+        {
+          id: "silo-agent",
+          tag: "Open-Source AI Agent · Plugin Architecture",
+          date: "October 2026",
+          title: "Silo — Plugin-Based AI Customer Service Agent",
+          description: "An open-source AI customer service agent that answers from company documents and performs actions in business systems. One main LangGraph agent is extended entirely through independent plugins, so new skills are added without touching the core. Reachable through a Telegram bot or an HTTP chat endpoint.",
+          highlights: [
+            "Plugin Architecture: The main agent discovers tools on demand (get_tool_info / use_tool); each plugin brings its own model, prompt, graph, and client",
+            "Human-Approved Writes: ERPNext support-ticket creation pauses with LangGraph interrupt() and shows exact details; only explicit customer approval creates the record",
+            "RAG Knowledge Plugin: Answers policy, shipping, warranty, and price questions from company PDFs via ChromaDB retrieval, and states when documents do not cover a question",
+            "Reliability: Persistent per-chat memory (SQLite), step limits against runaway loops, model-call retry with a friendly fallback",
+          ],
+          tech: ["Python", "FastAPI", "LangGraph", "ChromaDB", "RAG", "SQLite", "Telegram Bot API", "ERPNext API"],
+          link: "https://github.com/Marwan-badr543/Silo-Agent",
+          linkLabel: "View GitHub Repo",
+        },
+
         /* ── ODOO ERP ADDONS ── */
         {
           id: "odoo-sales-commission",
@@ -348,6 +366,22 @@ export const translations = {
           ],
           tech: ["Frappe Framework", "Python", "JavaScript", "MariaDB", "REST APIs", "Git"],
           link: "https://github.com/Marwan-badr543/cars-management-frappe",
+          linkLabel: "View GitHub Repo",
+        },
+        {
+          id: "hr-attendance",
+          tag: "Frappe Custom App · HRMS",
+          date: "October 2026",
+          title: "HR Attendance Sheet & Dashboard Frappe App",
+          description: "A monthly attendance sheet and dashboard for ERPNext / Frappe HRMS that lets HR mark the daily attendance of 100+ workers from a single screen, with monthly totals calculated automatically.",
+          highlights: [
+            "Monthly Attendance Grid: Every active employee with the whole month laid out as colour-coded Present / Absent / Leave cells, search, and 100-per-page pagination",
+            "Fast Marking: Single-day dialog, bulk mark for unmarked workers, submit all drafts, and automatic amend of already-submitted days",
+            "Attendance Dashboard: Date and employee filters, KPI cards, donut and stacked bar charts, and per-employee status table",
+            "Performance & Localization: Composite database index on attendance queries, Arabic and Urdu translations with RTL support, built on standard HRMS Attendance documents",
+          ],
+          tech: ["Frappe Framework", "HRMS", "Python", "JavaScript", "MariaDB", "Git"],
+          link: "https://github.com/Marwan-badr543/HR_attendance_frappe",
           linkLabel: "View GitHub Repo",
         },
 
