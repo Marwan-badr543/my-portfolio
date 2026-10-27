@@ -164,7 +164,7 @@ function SectionHeading({ badge, title, subtitle, large }: SectionHeadingProps) 
           {title}
         </motion.span>
       </h2>
-      <motion.p
+      {subtitle && <motion.p
         className={`text-zinc-400 leading-relaxed ${large ? "text-lg" : "text-base sm:text-lg"}`}
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -172,7 +172,7 @@ function SectionHeading({ badge, title, subtitle, large }: SectionHeadingProps) 
         transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
       >
         {subtitle}
-      </motion.p>
+      </motion.p>}
     </motion.div>
   );
 }
@@ -522,7 +522,7 @@ export default function Portfolio() {
 
             <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
               <Reveal className="lg:col-span-3 space-y-6 text-zinc-300/90 leading-[1.8] text-[15px] sm:text-base" delay={0.05}>
-                <p>{t.edge.p1}</p>
+                {t.edge.p1 && <p>{t.edge.p1}</p>}
                 <p>{t.edge.p2}</p>
                 <p className="relative text-lg sm:text-xl font-medium text-white ps-5 py-1">
                   <span className="absolute start-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-cyan-400 to-indigo-400" />
