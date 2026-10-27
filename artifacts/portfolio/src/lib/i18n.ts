@@ -24,12 +24,12 @@ export const translations = {
       scrollDown: "Scroll to explore",
     },
     edge: {
-      badge: "Who I Am",
-      title: "About Me",
-      subtitle: "",
+      badge: "The Accountant Edge",
+      title: "Where Finance Meets Technology",
+      subtitle: "Python backend engineer building production APIs and reliable AI agent systems, with native ERP development experience.",
       p1: "",
-      p2: "I'm a Python backend engineer with an accounting degree (2025, English Section). I build APIs and AI agents, and I understand the business data behind them: charts of accounts, journal entries, reconciliations, and ERP flows. My strongest work is where backend, AI, and finance meet.",
-      p3: "Focused on clean architecture, tested code, and data integrity.",
+      p2: "Graduated in 2025 from the Faculty of Commerce (English Section, Accounting Department). I understand how a Chart of Accounts is structured, how journal entries flow into the general ledger, and how inventory and payments connect to financial reports. This lets me build integrations, automations, and AI agents that keep accounting data accurate.",
+      p3: "Software that speaks the language of accountants.",
       pillars: [],
     },
     experience: {
