@@ -541,7 +541,7 @@ export default function Portfolio() {
                     <div className="text-zinc-500 italic">// Marwan's approach</div>
                     <div>
                       <span className="text-fuchsia-400">class</span>{" "}
-                      <span className="text-amber-300">ERPSolutionArchitect</span>
+                      <span className="text-amber-300">BackendEngineer</span>
                       <span className="text-zinc-400">:</span>
                     </div>
                     <div>
@@ -551,9 +551,9 @@ export default function Portfolio() {
                         <span className="text-zinc-400">(self, problem):</span>
                       </span>
                     </div>
-                    <div><span className="ps-8 inline-block text-zinc-300">understand_business_first()</span></div>
-                    <div><span className="ps-8 inline-block text-zinc-300">identify_root_cause()</span></div>
-                    <div><span className="ps-8 inline-block text-zinc-300">implement_solution()</span></div>
+                    <div><span className="ps-8 inline-block text-zinc-300">understand_the_domain()</span></div>
+                    <div><span className="ps-8 inline-block text-zinc-300">design_clean_api()</span></div>
+                    <div><span className="ps-8 inline-block text-zinc-300">ship_tested_and_observable()</span></div>
                     <div>
                       <span className="ps-8 inline-block text-cyan-300">return business_value</span>
                       <span className="caret" aria-hidden />
